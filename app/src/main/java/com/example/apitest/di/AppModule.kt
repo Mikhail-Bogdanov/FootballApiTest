@@ -5,6 +5,7 @@ import com.example.apitest.data.dataSource.local.LocalDataSource
 import com.example.apitest.data.dataSource.local.LocalDataSourceImpl
 import com.example.apitest.data.dataSource.remote.RemoteDataSource
 import com.example.apitest.data.dataSource.remote.RemoteDataSourceImpl
+import com.example.apitest.data.repository.MainRepository
 import com.example.apitest.data.repository.MainRepositoryImpl
 import dagger.Module
 import dagger.Provides
@@ -40,18 +41,18 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideLocalDataSource(footballApi: FootballApi) = LocalDataSourceImpl(footballApi)
+    fun provideLocalDataSource(footballApi: FootballApi): LocalDataSource = LocalDataSourceImpl(footballApi)
 
     @Provides
     @Singleton
-    fun providesRemoteDataSource(footballApi: FootballApi) = RemoteDataSourceImpl(footballApi)
+    fun providesRemoteDataSource(footballApi: FootballApi): RemoteDataSource = RemoteDataSourceImpl(footballApi)
 
     @Provides
     @Singleton
     fun provideMainRepository(
         localDataSource: LocalDataSource,
         remoteDataSource: RemoteDataSource
-    ) = MainRepositoryImpl(
+    ): MainRepository = MainRepositoryImpl(
         localDataSource = localDataSource,
         remoteDataSource =  remoteDataSource
     )

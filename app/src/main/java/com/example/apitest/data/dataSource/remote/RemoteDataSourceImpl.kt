@@ -7,14 +7,12 @@ import retrofit2.Response
 import javax.inject.Inject
 
 
-@AndroidEntryPoint
 class RemoteDataSourceImpl @Inject constructor(
     private val footballApi: FootballApi
 ) : RemoteDataSource {
 
-    override suspend fun getAllMatches(){
-
+    override suspend fun getAllMatches(): Response<FootballModel>{
+        return footballApi.getData()
     }
-
 
 }
