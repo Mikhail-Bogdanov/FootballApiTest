@@ -1,0 +1,104 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id "kotlin-kapt"
+    id "com.google.dagger.hilt.android"
+    id "androidx.navigation.safeargs.kotlin"
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.dagger.hilt.android'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+android {
+    namespace 'com.example.apitest'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.apitest"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    /*retrofit and okhttp3*/
+    def retrofitVer = "2.9.0"
+    def okhttp3Ver = "5.0.0-alpha.3"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVer"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVer"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVer"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp3Ver"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3Ver"
+
+    /*room*/
+    def roomVer = "2.5.1"
+    implementation "androidx.room:room-runtime:$roomVer"
+    implementation "androidx.room:room-ktx:$roomVer"
+    kapt("androidx.room:room-compiler:$roomVer")
+
+    /*navigation component*/
+    def navCompVer = "2.5.3"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navCompVer"
+    implementation "androidx.navigation:navigation-ui-ktx:$navCompVer"
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$navCompVer"
+    implementation "androidx.navigation:navigation-compose:$navCompVer"
+
+    /*hilt*/
+    def hiltVer = "2.44"
+    implementation "com.google.dagger:hilt-android:$hiltVer.2"
+    kapt "com.google.dagger:hilt-android-compiler:$hiltVer"
+
+    /*glide*/
+    def glideVer = "4.14.2"
+    implementation "com.github.bumptech.glide:glide:$glideVer"
+
+    /*other*/
+    def viewModelVer = "2.6.1"
+    //noinspection GradleCompatible
+    implementation "com.android.support:appcompat-v7:26.1.0"
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelVer"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$viewModelVer"
+    implementation "androidx.fragment:fragment-ktx:1.5.7"
+
+    annotationProcessor "com.google.dagger:hilt-compiler:$hiltVer.2"
+    //noinspection LifecycleAnnotationProcessorWithJava8
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+    annotationProcessor "androidx.room:room-compiler:$roomVer"
+    annotationProcessor "com.github.bumptech.glide:compiler:4.14.2"
+    testImplementation "junit:junit:4.13.2"
+    androidTestImplementation "androidx.test.ext:junit:1.1.5"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
+}
+
+kapt {
+    correctErrorTypes = true
+}
