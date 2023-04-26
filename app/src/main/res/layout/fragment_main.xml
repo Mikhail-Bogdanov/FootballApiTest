@@ -3,7 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.MainFragment">
+    tools:context=".presentation.ui.MainFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_matches"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/recycler_view_matches_item"
+        android:layout_marginTop="5dp" />
 
 
 

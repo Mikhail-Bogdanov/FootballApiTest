@@ -1,12 +1,12 @@
 package com.example.apitest.di
 
-import com.example.apitest.data.FootballApi
-import com.example.apitest.data.dataSource.local.LocalDataSource
-import com.example.apitest.data.dataSource.local.LocalDataSourceImpl
-import com.example.apitest.data.dataSource.remote.RemoteDataSource
-import com.example.apitest.data.dataSource.remote.RemoteDataSourceImpl
-import com.example.apitest.data.repository.MainRepository
-import com.example.apitest.data.repository.MainRepositoryImpl
+import com.example.data.FootballApi
+import com.example.data.dataSource.local.LocalDataSource
+import com.example.data.dataSource.local.LocalDataSourceImpl
+import com.example.data.dataSource.remote.RemoteDataSource
+import com.example.data.dataSource.remote.RemoteDataSourceImpl
+import com.example.data.repository.MainRepository
+import com.example.data.repository.MainRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,7 +23,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRetrofitInstance(): FootballApi{
+    fun provideRetrofitInstance(): FootballApi {
 
         val logging = HttpLoggingInterceptor()
         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -41,20 +41,23 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideLocalDataSource(footballApi: FootballApi): LocalDataSource = LocalDataSourceImpl(footballApi)
+    fun provideLocalDataSource(footballApi: FootballApi): LocalDataSource =
+        LocalDataSourceImpl(footballApi)
 
     @Provides
     @Singleton
-    fun providesRemoteDataSource(footballApi: FootballApi): RemoteDataSource = RemoteDataSourceImpl(footballApi)
+    fun providesRemoteDataSource(footballApi: FootballApi): RemoteDataSource =
+        RemoteDataSourceImpl(footballApi)
 
     @Provides
     @Singleton
     fun provideMainRepository(
         localDataSource: LocalDataSource,
         remoteDataSource: RemoteDataSource
-    ): MainRepository = MainRepositoryImpl(
-        localDataSource = localDataSource,
-        remoteDataSource =  remoteDataSource
-    )
+    ): MainRepository =
+        MainRepositoryImpl(
+            localDataSource = localDataSource,
+            remoteDataSource = remoteDataSource
+        )
 
 }

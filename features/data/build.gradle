@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id "kotlin-kapt"
+    id "com.google.dagger.hilt.android"
+}
+
+android {
+    namespace 'com.example.data'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    /*retrofit and okhttp3*/
+    def retrofitVer = "2.9.0"
+    def okhttp3Ver = "5.0.0-alpha.3"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVer"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVer"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVer"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp3Ver"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3Ver"
+
+    /*hilt*/
+    def hiltVer = "2.44"
+    implementation "com.google.dagger:hilt-android:$hiltVer.2"
+    kapt "com.google.dagger:hilt-android-compiler:$hiltVer"
+
+
+}
+
+kapt {
+    correctErrorTypes = true
+}
+

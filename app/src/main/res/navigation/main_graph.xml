@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.apitest.presentation.MainFragment"
+        android:name="com.example.apitest.presentation.ui.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/webviewFragment"
-        android:name="com.example.apitest.presentation.WebviewFragment"
+        android:name="com.example.apitest.presentation.ui.WebviewFragment"
         android:label="fragment_webview"
         tools:layout="@layout/fragment_webview" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.apitest.presentation.SplashFragment"
+        android:name="com.example.apitest.presentation.ui.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
