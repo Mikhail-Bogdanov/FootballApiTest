@@ -5,6 +5,6 @@ import com.example.data.footballModel.FootballModel
 
 interface MainRepository {
 
-    suspend fun getRemoteDataBody(): List<Data>?
+    suspend fun getRemoteDataList(): List<Data>?
 
 }

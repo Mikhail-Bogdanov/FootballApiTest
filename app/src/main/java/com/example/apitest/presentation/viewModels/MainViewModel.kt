@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.footballModel.Data
 import com.example.data.repository.MainRepository
-import com.example.data.footballModel.FootballModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -21,7 +20,7 @@ class MainViewModel @Inject constructor(
     fun getStatistic(){
         viewModelScope.launch {
             runCatching {
-                mainRepository.getRemoteDataBody()
+                mainRepository.getRemoteDataList()
             }.onSuccess { data ->
                 stateFlowStat.value = data
             }.onFailure {
