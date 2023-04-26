@@ -89,6 +89,9 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$viewModelVer"
     implementation "androidx.fragment:fragment-ktx:1.5.7"
 
+    /*one signal*/
+    implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
+
     annotationProcessor "com.google.dagger:hilt-compiler:$hiltVer.2"
     //noinspection LifecycleAnnotationProcessorWithJava8
     annotationProcessor "android.arch.lifecycle:compiler:1.1.1"

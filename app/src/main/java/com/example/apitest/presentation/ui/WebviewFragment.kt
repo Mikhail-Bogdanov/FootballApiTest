@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.apitest.R
 import com.example.apitest.databinding.FragmentWebviewBinding
+import com.example.apitest.presentation.CustomWebViewClient
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -23,6 +23,21 @@ class WebviewFragment : Fragment() {
         _binding = FragmentWebviewBinding.inflate(inflater, container, false)
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        createUI()
+    }
+
+    private fun createUI() = with(binding){
+        with(webView) {
+            loadUrl("https://github.com/Mikhail-Bogdanov")
+            settings.displayZoomControls = false
+            settings.javaScriptEnabled = true
+            webViewClient = CustomWebViewClient()
+        }
     }
 
     override fun onDestroy() {

@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface FootballApi {
 
-    @GET("games?seasons[]=2022&postseason=true")
+    @GET("games")
     suspend fun getData(): Response<FootballModel>
 
 }

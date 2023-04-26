@@ -9,8 +9,10 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.apitest.R
 import com.example.apitest.databinding.ActivityMainBinding
-import com.example.apitest.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import com.onesignal.OneSignal
+
+const val ONESIGNAL_APP_ID = "b7224024-b944-4823-9572-fedc5b1dbb70"
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -24,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        enableOneSignal()
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
 
@@ -34,9 +36,16 @@ class MainActivity : AppCompatActivity() {
         //TODO в хилте onSaveInstance
     }
 
-    override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
-        return super.onCreateView(name, context, attrs)
+    /**
+     * включение и подписка oneSignal
+     */
+    private fun enableOneSignal(){
+        OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE)
 
+        OneSignal.initWithContext(this)
+        OneSignal.setAppId(ONESIGNAL_APP_ID)
+
+        OneSignal.promptForPushNotifications()
     }
 
     private fun bottomNavViewItemSelected(){

@@ -45,6 +45,7 @@ dependencies {
     def hiltVer = "2.44"
     implementation "com.google.dagger:hilt-android:$hiltVer.2"
     kapt "com.google.dagger:hilt-android-compiler:$hiltVer"
+
 }
 
 kapt {
