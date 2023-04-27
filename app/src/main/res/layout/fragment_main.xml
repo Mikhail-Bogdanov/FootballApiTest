@@ -12,6 +12,4 @@
         tools:listitem="@layout/recycler_view_matches_item"
         android:layout_marginTop="5dp" />
 
-
-
 </FrameLayout>

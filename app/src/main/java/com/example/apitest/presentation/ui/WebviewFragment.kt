@@ -5,10 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.apitest.CustomWebViewClient
 import com.example.apitest.databinding.FragmentWebviewBinding
-import com.example.apitest.presentation.CustomWebViewClient
 import dagger.hilt.android.AndroidEntryPoint
-
 
 @AndroidEntryPoint
 class WebviewFragment : Fragment() {
@@ -21,7 +20,6 @@ class WebviewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentWebviewBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -44,5 +42,4 @@ class WebviewFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
 }

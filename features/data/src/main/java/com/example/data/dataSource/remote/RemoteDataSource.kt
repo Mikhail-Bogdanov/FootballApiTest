@@ -6,5 +6,4 @@ import retrofit2.Response
 interface RemoteDataSource {
 
     suspend fun getAllMatches(): Response<FootballModel>
-
 }

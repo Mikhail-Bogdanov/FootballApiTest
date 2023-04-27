@@ -5,12 +5,12 @@
         android:id="@+id/mainFragment"
         android:title="Main"
         android:enabled="true"
-        android:icon="@drawable/baseline_sports_soccer_24"/>
+        android:icon="@drawable/baseline_sports_soccer_24" />
 
     <item
         android:id="@+id/webviewFragment"
         android:title="Web"
         android:enabled="true"
-        android:icon="@drawable/baseline_web_asset_24"/>
+        android:icon="@drawable/baseline_web_asset_24" />
 
 </menu>

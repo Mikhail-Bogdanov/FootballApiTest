@@ -1,16 +1,14 @@
 package com.example.apitest.presentation.ui
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.apitest.R
 import com.example.apitest.databinding.ActivityMainBinding
-import dagger.hilt.android.AndroidEntryPoint
 import com.onesignal.OneSignal
+import dagger.hilt.android.AndroidEntryPoint
 
 const val ONESIGNAL_APP_ID = "b7224024-b944-4823-9572-fedc5b1dbb70"
 
@@ -21,19 +19,15 @@ class MainActivity : AppCompatActivity() {
 
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         enableOneSignal()
-
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
-
         bottomNavViewItemSelected()
-
-
-        //TODO в хилте onSaveInstance
     }
 
     /**
@@ -41,10 +35,8 @@ class MainActivity : AppCompatActivity() {
      */
     private fun enableOneSignal(){
         OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE)
-
         OneSignal.initWithContext(this)
         OneSignal.setAppId(ONESIGNAL_APP_ID)
-
         OneSignal.promptForPushNotifications()
     }
 
@@ -55,7 +47,6 @@ class MainActivity : AppCompatActivity() {
                     navController!!.navigate(R.id.mainFragment)
                     return@setOnItemSelectedListener true
                 }
-
                 R.id.webviewFragment -> {
                     navController!!.navigate(R.id.webviewFragment)
                     return@setOnItemSelectedListener true
@@ -69,5 +60,4 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         _binding = null
     }
-
 }

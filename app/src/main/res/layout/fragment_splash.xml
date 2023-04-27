@@ -10,8 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="24sp"
+        android:textColor="@color/green"
         android:text="Welcome to FootballStat"/>
-
-    <!--TODO ANIMATE-->
 
 </FrameLayout>

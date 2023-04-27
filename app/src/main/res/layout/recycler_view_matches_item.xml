@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal" >
 
         <LinearLayout
             android:id="@+id/ll_homeTeam"
@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="start"
-            android:orientation="vertical">
+            android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/tv_result_homeTeam"
@@ -59,7 +59,7 @@
                 android:layout_gravity="bottom"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal" >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -91,7 +91,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="bottom"
-        android:orientation="vertical">
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/tv_final"
@@ -120,7 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_gravity="center|bottom"
-            android:orientation="horizontal">
+            android:orientation="horizontal" >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -129,7 +129,7 @@
                 android:layout_margin="5dp"
                 android:padding="3dp"
                 android:textSize="12sp"
-                android:text="Season:"/>
+                android:text="Season:" />
 
             <TextView
                 android:id="@+id/tv_season"
@@ -143,8 +143,6 @@
 
         </LinearLayout>
 
-
-
     </LinearLayout>
 
     <LinearLayout
@@ -153,7 +151,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="end"
-        android:orientation="vertical">
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/tv_result_visitorTeam"
@@ -189,15 +187,13 @@
             android:layout_margin="5dp"
             android:padding="3dp" />
 
-
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:layout_gravity="end|bottom"
-            android:orientation="horizontal">
+            android:orientation="horizontal" >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -207,7 +203,7 @@
                 android:padding="3dp"
                 android:layout_gravity="bottom"
                 android:textSize="14sp"
-                android:text="Score:"/>
+                android:text="Score:" />
 
             <TextView
                 android:id="@+id/tv_score_visitorTeam"
@@ -231,7 +227,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         app:dividerInsetStart="16dp"
-        app:dividerInsetEnd="16dp"/>
-    
+        app:dividerInsetEnd="16dp" />
 
 </LinearLayout>

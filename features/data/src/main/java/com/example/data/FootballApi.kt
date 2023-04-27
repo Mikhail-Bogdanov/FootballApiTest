@@ -8,5 +8,4 @@ interface FootballApi {
 
     @GET("games")
     suspend fun getData(): Response<FootballModel>
-
 }

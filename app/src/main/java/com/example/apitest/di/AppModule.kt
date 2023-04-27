@@ -1,15 +1,19 @@
 package com.example.apitest.di
 
+import android.content.Context
+import androidx.room.Room
 import com.example.data.FootballApi
 import com.example.data.dataSource.local.LocalDataSource
 import com.example.data.dataSource.local.LocalDataSourceImpl
 import com.example.data.dataSource.remote.RemoteDataSource
 import com.example.data.dataSource.remote.RemoteDataSourceImpl
+import com.example.data.database.AppDatabase
 import com.example.data.repository.MainRepository
 import com.example.data.repository.MainRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -41,8 +45,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideLocalDataSource(footballApi: FootballApi): LocalDataSource =
-        LocalDataSourceImpl(footballApi)
+    fun provideLocalDataSource(appDatabase: AppDatabase): LocalDataSource =
+        LocalDataSourceImpl(appDatabase)
 
     @Provides
     @Singleton
@@ -60,4 +64,11 @@ object AppModule {
             remoteDataSource = remoteDataSource
         )
 
+    @Singleton
+    @Provides
+    fun provideAppDatabase(@ApplicationContext appContext: Context): AppDatabase {
+        return Room
+            .databaseBuilder(appContext, AppDatabase::class.java, "football-database")
+            .build()
+    }
 }

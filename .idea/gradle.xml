@@ -13,7 +13,6 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/data" />
-            <option value="$PROJECT_DIR$/features/webview" />
           </set>
         </option>
       </GradleProjectSettings>
